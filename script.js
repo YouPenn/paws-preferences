@@ -125,7 +125,7 @@ function showSummary() {
 
   // Hidden Card Container
   const container = document.querySelector(".card-container");
-  container.style.display = "none"; // ⭐ 隐藏原来的卡片位置
+  container.style.display = "none"; //Hide the original card position
 
   // Display summary
   summary.classList.remove("hidden");
