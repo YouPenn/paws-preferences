@@ -5,7 +5,6 @@ html, body {
   font-family: Arial, sans-serif;
   background: #f6f6f6;
   text-align: center;
-  /* 移除 flex 居中 */
   display: block;
   overflow-x: hidden;
 }
@@ -18,10 +17,10 @@ h1 {
 .card-container {
   width: 90vw;
   max-width: 320px;
-  height: 55vh;      /* 可根据屏幕自适应 */
+  height: 55vh;    
   max-height: 420px;
   position: relative;
-  margin: 20px 0;    /* ⭐ 上下留白 */
+  margin: 20px 0;   
   touch-action: none;
 }
 
@@ -45,7 +44,7 @@ h1 {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;  /* 手机小屏自动换行 */
+  flex-wrap: wrap; 
 }
 
 button {
@@ -72,13 +71,13 @@ button {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Like：往右飞 */
+/* Like rotate to right */
 .cat-card.like {
   transform: translateX(400px) rotate(20deg);
   opacity: 0;
 }
 
-/* Dislike：往左飞 */
+/* Dislike rotate left*/
 .cat-card.dislike {
   transform: translateX(-400px) rotate(-20deg);
   opacity: 0;
@@ -90,22 +89,22 @@ button {
 
 .cat-card.dragging {
   cursor: grabbing;
-  transition: none; /* 拖动时不要动画 */
+  transition: none; 
 }
 
 .gallery {
   display: flex;
-  flex-direction: column;   /* ⭐ 每张图片单独一行 */
-  align-items: center;      /* ⭐ 居中显示 */
-  gap: 16px;                /* 图片间距 */
+  flex-direction: column;  
+  align-items: center;    
+  gap: 16px;              
   margin-top: 20px;
   width: 100%;
 }
 
 .gallery img {
-  width: 70vw;              /* ⭐ 图片宽度占屏幕 70% */
-  max-width: 400px;         /* 桌面防止太大 */
-  height: auto;             /* 保持比例 */
+  width: 70vw;             
+  max-width: 400px;        
+  height: auto;            
   border-radius: 10px;
   object-fit: cover;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -114,7 +113,7 @@ button {
 
 @media (max-width: 480px) {
   .card-container {
-    height: 55vh;  /* 手机竖屏更紧凑 */
+    height: 55vh;
   }
 
   button {
@@ -123,17 +122,17 @@ button {
   }
 
   .gallery img {
-    width: 80vw;   /* 手机屏幕稍微大一点，占屏幕 80% */
+    width: 80vw; 
   }
 }
 
 .app-wrapper {
-  min-height: 100vh;      /* ⭐ 至少填满屏幕高度 */
+  min-height: 100vh;   
   display: flex;
   flex-direction: column;
-  align-items: center;     /* 水平居中 */
-  justify-content: flex-start; /* ⭐ 从上往下排列，不被挤出 */
-  padding: 20px 10px;     /* ⭐ 顶部和底部留白 */
+  align-items: center;   
+  justify-content: flex-start; 
+  padding: 20px 10px;     
   box-sizing: border-box;
 }
 

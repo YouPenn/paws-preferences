@@ -16,7 +16,7 @@ let disliked = 0;
 let likedImages = [];
 
 
-// 创建猫卡片
+// Create Cat Card
 function createCatCard() {
   const card = document.createElement("div");
   card.className = "cat-card";
@@ -30,25 +30,25 @@ function createCatCard() {
 
 init();
 
-// 获取最上面那张卡
+// Get the top card
 function getTopCard() {
   return container.lastElementChild;
 }
 
-// 处理1
+// handleChoice
 function handleChoice(isLike) {
-  if (isDragging) return; //防止拖拽中点按钮
+  if (isDragging) return; //Prevent dragging the midpoint button
   const card = getTopCard();
   if (!card) return;
   swipeCard(card, isLike);
 }
 
 
-// 处理2
+// swipeCard
 function swipeCard(card, isLike) {
   if (!card) return;
 
-  // 防止重复 swipe
+  // Preventing repetition swipe
   if (card.classList.contains("like") || card.classList.contains("dislike")) {
     return;
   }
@@ -69,7 +69,7 @@ if (isLike) {
   }, 400);
 }
 
-//处理3
+//
 let startX = 0;
 let currentX = 0;
 let isDragging = false;
@@ -100,7 +100,7 @@ container.addEventListener("mousedown", (e) => {
     } else if (currentX < -threshold) {
       swipeCard(card, false);  // Dislike
     } else {
-      // 弹回原位
+      // bounce back to its original position
       card.style.transition = "transform 0.3s ease";
       card.style.transform = "translateX(0) rotate(0deg)";
       setTimeout(() => {
@@ -118,23 +118,23 @@ container.addEventListener("mousedown", (e) => {
 });
 
 
-// 显示总结
+// Summary
 function showSummary() {
-  // 隐藏按钮
+  // Hide button
   document.querySelector(".buttons").style.display = "none";
 
-  // 隐藏卡片容器
+  // Hidden Card Container
   const container = document.querySelector(".card-container");
   container.style.display = "none"; // ⭐ 隐藏原来的卡片位置
 
-  // 显示 summary
+  // Display summary
   summary.classList.remove("hidden");
 
-  // 更新统计数字
+  // Update statistics
   likeCountEl.textContent = liked;
   dislikeCountEl.textContent = disliked;
 
-  // 显示喜欢的猫咪
+  // Show your liked cat
   const gallery = document.getElementById("likedGallery");
   gallery.innerHTML = "";
   likedImages.forEach(src => {
@@ -146,7 +146,7 @@ function showSummary() {
 
 
 
-// 按钮事件
+// button
 likeBtn.addEventListener("click", () => handleChoice(true));
 dislikeBtn.addEventListener("click", () => handleChoice(false));
 
@@ -189,27 +189,27 @@ container.addEventListener("touchstart", (e) => {
 });
 
 function init() {
-  // 重置数据
+  // Reset data
   liked = 0;
   disliked = 0;
   likedImages = [];
 
-  // 更新数字
+  // Update numbers
   likeCountEl.textContent = "0";
   dislikeCountEl.textContent = "0";
 
-  // 清空容器
+  // Empty container
   container.innerHTML = "";
   gallery.innerHTML = "";
 
-  // 显示卡片和按钮
+  // Show cards and buttons
   container.style.display = "block";
   document.querySelector(".buttons").style.display = "flex";
 
-  // 隐藏 summary
+  // hide summary
   summary.classList.add("hidden");
 
-  // 重新生成卡片
+  // Regenerate cards
   for (let i = 0; i < CARD_COUNT; i++) {
     const card = createCatCard();
     container.appendChild(card);
