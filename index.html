@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Paws & Preferences</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app-wrapper">
+    <h1>🐾 Paws & Preferences</h1>
+    <p class="hint">Swipe the cat left/right or use the buttons ❌❤️</p>
+    <div class="card-container"></div>
+    <div class="buttons">
+      <button id="dislike">❌ Dislike</button>
+      <button id="like">❤️ Like</button>
+    </div>
+    <div id="summary" class="hidden">
+      <h2>Summary</h2>
+      <p>Liked: <span id="likeCount">0</span></p>
+      <p>Disliked: <span id="dislikeCount">0</span></p>
+
+      <h3>❤️ Your Liked Cats</h3>
+      <div id="likedGallery" class="gallery"></div>
+        
+      <button id="restart">🔄 Play Again</button>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

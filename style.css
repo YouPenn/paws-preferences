@@ -1,0 +1,157 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #f6f6f6;
+  text-align: center;
+  /* 移除 flex 居中 */
+  display: block;
+  overflow-x: hidden;
+}
+
+
+h1 {
+  margin: 20px 0;
+}
+
+.card-container {
+  width: 90vw;
+  max-width: 320px;
+  height: 55vh;      /* 可根据屏幕自适应 */
+  max-height: 420px;
+  position: relative;
+  margin: 20px 0;    /* ⭐ 上下留白 */
+  touch-action: none;
+}
+
+.cat-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: white;
+}
+
+.cat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;  /* 手机小屏自动换行 */
+}
+
+button {
+  font-size: 16px;
+  padding: 10px 18px;
+  margin: 8px;
+}
+
+#like {
+  background-color: #ff5a5f;
+  color: white;
+}
+
+#dislike {
+  background-color: #999;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.cat-card {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Like：往右飞 */
+.cat-card.like {
+  transform: translateX(400px) rotate(20deg);
+  opacity: 0;
+}
+
+/* Dislike：往左飞 */
+.cat-card.dislike {
+  transform: translateX(-400px) rotate(-20deg);
+  opacity: 0;
+}
+
+.cat-card {
+  cursor: grab;
+}
+
+.cat-card.dragging {
+  cursor: grabbing;
+  transition: none; /* 拖动时不要动画 */
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;   /* ⭐ 每张图片单独一行 */
+  align-items: center;      /* ⭐ 居中显示 */
+  gap: 16px;                /* 图片间距 */
+  margin-top: 20px;
+  width: 100%;
+}
+
+.gallery img {
+  width: 70vw;              /* ⭐ 图片宽度占屏幕 70% */
+  max-width: 400px;         /* 桌面防止太大 */
+  height: auto;             /* 保持比例 */
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+@media (max-width: 480px) {
+  .card-container {
+    height: 55vh;  /* 手机竖屏更紧凑 */
+  }
+
+  button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .gallery img {
+    width: 80vw;   /* 手机屏幕稍微大一点，占屏幕 80% */
+  }
+}
+
+.app-wrapper {
+  min-height: 100vh;      /* ⭐ 至少填满屏幕高度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* 水平居中 */
+  justify-content: flex-start; /* ⭐ 从上往下排列，不被挤出 */
+  padding: 20px 10px;     /* ⭐ 顶部和底部留白 */
+  box-sizing: border-box;
+}
+
+.hint {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0 20px 0;
+}
+
+#restart {
+  margin-top: 20px;
+  padding: 10px 22px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #333;
+  color: white;
+}
+
+
